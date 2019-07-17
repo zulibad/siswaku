@@ -1,5 +1,5 @@
 <div id="siswa">
-    <h2>Siswa</h2>
+    <h2>Daftar Siswa</h2>
 
     <?php if (!empty($siswa)):?>
         <ul>
