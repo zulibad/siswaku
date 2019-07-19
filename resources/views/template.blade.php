@@ -5,12 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-widht, initial-scale=1">
 
-     <title>Siswaku</title>
-        <link herf="{{ asset ('bootstrap_3_3_6/css/bootstrap.min.css') }}" rel="stylesheet">
+     <title>Siswa</title>
+        <link href="{{ asset ('bootstrap_3_3_6/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset ('css/style.css') }}" rel="stylesheet">
     </head>
     <body>
         <div class="container">
+            @include('navbar')
             @yield('main')
         </div>
             @yield('footer')
