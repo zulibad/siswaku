@@ -14,8 +14,17 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li><a href=" {{ url('siswa') }}">Siswa</a></li>
-            <li><a href=" {{ url('about') }}">About</a></li>
+            @if (!empty($halaman) && $halaman == 'siswa')
+                <li class="active"><a href="{{ url('siswa') }}">Siswa<span class="sr-only">(current)</span></a></li>
+            @else
+                <li><a href=" {{ url('siswa') }}">Siswa</a></li>
+            @endif
+
+            @if (!empty($halaman) && $halaman == 'about')
+                <li class="active"><a href=" {{ url('about') }}">About<span class="sr-only">(current)</span></a></li>
+            @else
+                <li><a href=" {{ url('about') }}">About</a></li>
+            @endif
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Login</a></li>

@@ -2,7 +2,7 @@
 
 @section('main')
         <div id="siswa">
-            <h2>DATA SISWA</h2>
+            <h2>SISWA</h2>
 
             @if (!empty($siswa))
                 <ul>

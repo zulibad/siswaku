@@ -1,20 +1,16 @@
 <?php
 
-Route::get('/', function () {
-	return view ('pages.homepage');
-});
+Route::get('/', 'PagesController@homepage');
 
-Route::get('about', function() {
-    return view ('pages.about');
-});
+Route::get('about', 'PagesController@about');
 
-Route::get('siswa', function() {
-    $siswa = ['Zulfikar',
-              'Sifa Latifa',
-              'Ibad Al Hakim',
-              'Ikhbar'
-             ];
-        return view('siswa.index', compact('siswa'));
-});
+Route::get('siswa', 'SiswaController@index');
+
+Route::get('halaman-rahasia', [
+    'as'    => 'secret',
+    'uses'  => 'RahasiaController@halamanRahasia'
+]);
+
+Route::get('showmesecret', 'RahasiaController@showMeSecret');
 
 ?>

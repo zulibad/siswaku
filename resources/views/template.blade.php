@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-widht, initial-scale=1">
 
      <title>Siswa</title>
+        {{-- Memanggil Bootstrap --}}
         <link href="{{ asset ('bootstrap_3_3_6/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset ('css/style.css') }}" rel="stylesheet">
     </head>
