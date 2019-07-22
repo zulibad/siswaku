@@ -13,6 +13,10 @@ class SiswaController extends Controller
               'Ibad Al Hakim',
               'Ikhbar'
              ];
-        sreturn view('siswa.index', compact('halaman','siswa'));
+        return view('siswa.index', compact('halaman','siswa'));
+    }
+
+    public function create() {
+        return view('siswa.create');
     }
 }
