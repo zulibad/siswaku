@@ -13,4 +13,6 @@ Route::get('halaman-rahasia', [
 
 Route::get('showmesecret', 'RahasiaController@showMeSecret');
 
+Route::get('siswa/create', 'SiswaController@create');
+
 ?>
