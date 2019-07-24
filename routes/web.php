@@ -15,6 +15,8 @@ Route::get('showmesecret', 'RahasiaController@showMeSecret');
 
 Route::get('siswa/create', 'SiswaController@create');
 
-Route::post('siswa', 'SiswaController@store')
+Route::post('siswa', 'SiswaController@store');
+
+Route::get('siswa/{siswa}', 'SiswaController@show');
 
 ?>
