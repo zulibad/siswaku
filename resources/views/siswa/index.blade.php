@@ -10,8 +10,9 @@
                         <tr>
                             <th>NISN</th>
                             <th>NAMA</th>
-                            <th>TANGGAL LAHIR</th>
-                            <th>JENIS KELAMIN</th>
+                            <th>TGL LAHIR</th>
+                            <th>JK</th>
+                            <th>ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,6 +22,7 @@
                             <td>{{ $siswa->nama_siswa }}</td>
                             <td>{{ $siswa->tanggal_lahir }}</td>
                             <td>{{ $siswa->jenis_kelamin }}</td>
+                            <td>{{ link_to('siswa/'.$siswa->id, 'Detail', ['class' => 'label label-primary']) }}</td>
                         </tr>
                         <?php endforeach ?>
                     </tbody>
