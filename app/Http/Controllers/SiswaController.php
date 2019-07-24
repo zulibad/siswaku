@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Siswa;
 use Illuminate\Http\Request;
+
 
 class SiswaController extends Controller
 {
     public function index() {
         $halaman = 'siswa';
-        $siswa = ['Zulfikar',
-              'Sifa Latifa',
-              'Ibad Al Hakim',
-              'Ikhbar'
-             ];
-        return view('siswa.index', compact('halaman','siswa'));
+        $siswa_list = Siswa::all()->sortBy('nisn');
+        $jumlah_siswa =$siswa_list->count();
+        return view('siswa.index', compact('halaman','siswa_list', 'jumlah_siswa'));
     }
 
     public function create() {
