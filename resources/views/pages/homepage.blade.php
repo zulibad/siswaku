@@ -9,6 +9,6 @@
 
 @section('footer')
         <div id="footer">
-            <p>&copy; 2019 laravelapp.dev</p>
+            <p>&copy; 2019 siswaku.app</p>
         </div>
 @stop
