@@ -9,9 +9,9 @@
                     <thead>
                         <tr>
                             <th>NISN</th>
-                            <th>Nama</th>
-                            <th>Tgl Lahir</th>
-                            <th>JK</th>
+                            <th>NAMA</th>
+                            <th>TANGGAL LAHIR</th>
+                            <th>JENIS KELAMIN</th>
                         </tr>
                     </thead>
                     <tbody>
