@@ -40,7 +40,5 @@
 @stop
 
 @section('footer')
-    <div id="footer">
-        <p>&copy; 2019 SiswakuApp</p>
-    </div>
+    @include('footer')
 @stop
