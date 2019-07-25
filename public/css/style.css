@@ -5,15 +5,28 @@ html {
 
 body {
     margin-bottom: 70px;
-    background-color: #d3e4e4;
+    background-color: #c1dae0ef;
 }
 #footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color:#9bf0eb;
+    background-color:#8cd5eb;
     font-size: 0.9em;
     height: 50px;
     text-align: center;
     padding-top: 20px;
+}
+.table-bottom {
+    height: 40px;
+    padding: 10px 0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+.bottom-nav {
+    margin-top: 20px;
+}
+
+h2 {
+    border-bottom: 1px solid #000;
 }
