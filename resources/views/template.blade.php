@@ -11,6 +11,16 @@
         <link href="{{ asset ('css/style.css') }}" rel="stylesheet">
     </head>
     <body>
+        <?php
+        $halaman = '';
+        if (Request::segment(1) == 'siswa') {
+            $halaman = 'siswa';
+        }
+        if (Request::segment(1) == 'about') {
+            $halaman = 'about';
+        }
+        ?>
+        
         <div class="container">
             @include('navbar')
             @yield('main')
