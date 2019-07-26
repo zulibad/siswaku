@@ -2,7 +2,7 @@
 
 @section('main')
         <div id="siswa">
-            <h2>SISWA</h2>
+            <h2>ANAK ASUH</h2>
 
             @if (!empty($siswa_list))
                 <table class="table table-hover">
