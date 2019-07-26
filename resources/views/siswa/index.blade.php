@@ -49,6 +49,6 @@
         </div>
 @stop
 
-@section('footer')
+<!-- @section('footer')
     @include('footer')
-@stop
+@stop -->
