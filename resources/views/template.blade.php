@@ -25,7 +25,8 @@
             @include('navbar')
             @yield('main')
         </div>
-            @yield('footer')
+        @yield('footer')
+            
         <script src="{{ asset ('js/jquery_2_2_1.min.js') }}"> </script>
         <script src="{{ asset ('bootstrap_3_3_6/js/bootstrap.min.js') }}"> </script>
     </body>
