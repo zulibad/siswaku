@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" style="background-color:#8cd5eb">
+<nav class="navbar navbar-default" style="background-color:#96eedb">
 <div class="container-fluid">
     <div class="navbar-header">
      <button type="button" class="navbar-toggle collapsed"
@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
      </button>
-     <a class="navbar-brand" href="{{ url('/') }}">SiswakuApp</a>
+     <a class="navbar-brand" href="{{ url('/') }}">AnakAsuhApp</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
