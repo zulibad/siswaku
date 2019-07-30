@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class SiswaController extends Controller
 {
     public function index() {
-        $siswa_list = Siswa::all();
-        $jumlah_siswa =$siswa_list->count();
+        $siswa_list = Siswa::orderBy('nama_siswa', 'asc')->paginate(3);
+        $jumlah_siswa =Siswa::count();
         return view('siswa.index', compact('siswa_list', 'jumlah_siswa'));
     }
 
@@ -36,6 +36,12 @@ class SiswaController extends Controller
     public function update($id, Request $request) {
         $siswa = Siswa::findOrFail($id);
         $siswa-> update($request->all());
+        return redirect('siswa');
+    }
+
+    public function destroy($id) {
+        $siswa=Siswa::findOrFail($id);
+        $siswa->delete();
         return redirect('siswa');
     }
 }
