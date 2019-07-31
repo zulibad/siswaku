@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class SiswaController extends Controller
 {
     public function index() {
-        $siswa_list = Siswa::orderBy('nama_siswa', 'asc')->paginate(3);
+        $siswa_list = Siswa::orderBy('nama_siswa', 'asc')->Paginate(3);
         $jumlah_siswa =Siswa::count();
         return view('siswa.index', compact('siswa_list', 'jumlah_siswa'));
     }
