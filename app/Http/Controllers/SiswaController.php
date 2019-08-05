@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class SiswaController extends Controller
 {
     public function index() {
-        $siswa_list = Siswa::orderBy('nama_siswa', 'asc')->Paginate(3);
+        $siswa_list = Siswa::orderBy('nisn', 'asc')->Paginate(5);
         $jumlah_siswa =Siswa::count();
         return view('siswa.index', compact('siswa_list', 'jumlah_siswa'));
     }
@@ -43,5 +43,18 @@ class SiswaController extends Controller
         $siswa=Siswa::findOrFail($id);
         $siswa->delete();
         return redirect('siswa');
+    }
+
+    public function tesCollection() {
+        $collection = Siswa::select('nisn', 'nama_siswa')->take(3)->get();
+            $koleksi = $collection->toArray();
+            foreach ($koleksi as $siswa) {
+                echo $siswa['nisn'].'-'.$siswa['nama_siswa'].'<br>';
+        }
+    }
+
+    public function dateMutator() {
+        $siswa=Siswa::findOrFail(1);
+        dd($siswa->created_at);
     }
 }
