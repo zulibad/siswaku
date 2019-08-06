@@ -18,7 +18,7 @@
 
                 <tr>
                     <th>Tanggal Lahir</th>
-                    <td>{{ $siswa->tanggal_lahir }}</td>
+                    <td>{{ $siswa->tanggal_lahir->format('d-m-Y') }}</td>
                 </tr>
 
                 <tr>
