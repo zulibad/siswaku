@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Siswa;
 use Illuminate\Http\Request;
+use Validator;
 
 
 class SiswaController extends Controller
@@ -19,8 +20,21 @@ class SiswaController extends Controller
     }
 
     public function store(Request $request) {
-        Siswa::create($request->all());
-        return redirect ('siswa');
+        $input = $request->all();
+
+        $validator = Validator::make($input, [
+            'nisn' => 'required|string|size:4|unique:siswa,nisn',
+            'nama_siswa' => 'required|string|max:30',
+            'tanggal_lahir'=> 'required|date',
+            'jenis_kelamin'=> 'required|in:L,P',
+        ]);
+        if ($validator->fails()) {
+            return redirect('siswa/create')
+                ->withInput()
+                ->withErrors($validator);
+        }
+        Siswa::create($input);
+        return redirect('siswa');
     }
 
     public function show($id) {
@@ -35,7 +49,20 @@ class SiswaController extends Controller
 
     public function update($id, Request $request) {
         $siswa = Siswa::findOrFail($id);
-        $siswa-> update($request->all());
+        $input = $request->all();
+        
+        $validator = Validator::make($input, [
+            'nisn' => 'required|string|size:4|unique:siswa,nisn,'. $request->input('id'),
+            'nama_siswa' => 'required|string|max:30',
+            'tanggal_lahir'=> 'required|date',
+            'jenis_kelamin'=> 'required|in:L,P',
+        ]);
+        if ($validator->fails()) {
+            return redirect('siswa/'. $id . '/edit')
+                ->withInput()
+                ->withErrors($validator);
+        }
+        $siswa->update($request->all());
         return redirect('siswa');
     }
 
@@ -55,6 +82,9 @@ class SiswaController extends Controller
 
     public function dateMutator() {
         $siswa=Siswa::findOrFail(1);
-        dd($siswa->created_at);
+        $nama=$siswa->nama_siswa;
+        $tanggal_lahir=$siswa->tanggal_lahir->format('d-m-Y');
+        $ulang_tahun=$siswa->tanggal_lahir->addYears(30)->format('d-m-Y');
+        return "Siswa {$nama} lahir pada {$tanggal_lahir}.<br> Ulang tahun ke-30 akan jatuh pada{$ulang_tahun}.";
     }
 }
