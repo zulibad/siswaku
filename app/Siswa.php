@@ -15,6 +15,8 @@ class Siswa extends Model
         'jenis_kelamin',
     ];
 
+    protected $dates = ['tanggal_lahir'];
+
     public function getNamaSiswaAttribute ($nama_siswa) {
         return ucwords ($nama_siswa);
     }
