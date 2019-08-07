@@ -12,6 +12,7 @@
                             <th>NAMA</th>
                             <th>TGL LAHIR</th>
                             <th>JK</th>
+                            <th>NO.TELP</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>
@@ -22,6 +23,7 @@
                             <td>{{ $siswa->nama_siswa }}</td>
                             <td>{{ $siswa->tanggal_lahir->format('d-m-Y') }}</td>
                             <td>{{ $siswa->jenis_kelamin }}</td>
+                            <td>{{ !empty($siswa->telepon->nomor_telepon) ? $siswa->telepon->nomor_telepon : '-' }}</td>
                             <td>
                                 <div class="box-button">
                                     {{ link_to('siswa/'.$siswa->id, 'Detail', ['class' => 'btn btn-primary btn-sm']) }}
