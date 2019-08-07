@@ -24,4 +24,8 @@ class Siswa extends Model
     public function setNamaSiswaAttribute($nama_siswa) {
         $this->attributes['nama_siswa'] = strtolower($nama_siswa);
     }
+
+    public function telepon() {
+        return $this->hasOne('App\Telepon', 'id_siswa');
+    }
 }
