@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Siswa;
 use Illuminate\Http\Request;
 use Validator;
+use App\Telepon;
 
 
 class SiswaController extends Controller
@@ -27,13 +28,18 @@ class SiswaController extends Controller
             'nama_siswa' => 'required|string|max:30',
             'tanggal_lahir'=> 'required|date',
             'jenis_kelamin'=> 'required|in:L,P',
+            'nomor_telepon'=> 'sometimes|numeric|digits_between:10,15|unique:telepon,nomor_telepon',
         ]);
+        
         if ($validator->fails()) {
-            return redirect('siswa/create')
-                ->withInput()
-                ->withErrors($validator);
+            return redirect('siswa/create')->withInput()->withErrors($validator);
         }
-        Siswa::create($input);
+        $siswa = Siswa::create($input);
+
+        $telepon = new Telepon;
+        $telepon->nomor_telepon = $request->input('nomor_telepon');
+        $siswa->telepon()->save($telepon);
+
         return redirect('siswa');
     }
 
