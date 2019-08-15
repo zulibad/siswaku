@@ -150,6 +150,12 @@ return [
             'required' => 'Kolom Tanggal Lahir harus di isi.',
             'date' => 'Kolom Tanggal Lahir harus di isi format tanggal yang benar.',
         ],
+
+        'nomor_telepon' => [
+            'unique' => 'Nomor Telepon sudah terpakai.',
+            'numeric'=> 'Nomor Telepon harus di isi Angka',
+            'digits_between' => 'Nomor Telepon harus antara :min atau :max digit.',
+        ]
     ],
 
     /*
