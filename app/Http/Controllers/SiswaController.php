@@ -6,6 +6,7 @@ use App\Siswa;
 use Illuminate\Http\Request;
 use Validator;
 use App\Telepon;
+use App\Kelas;
 
 
 class SiswaController extends Controller
@@ -17,7 +18,8 @@ class SiswaController extends Controller
     }
 
     public function create() {
-        return view('siswa.create');
+        $list_kelas = Kelas::pluck('nama_kelas', 'id');
+        return view('siswa.create', compact('list_kelas'));
     }
 
     public function store(Request $request) {
@@ -29,6 +31,7 @@ class SiswaController extends Controller
             'tanggal_lahir'=> 'required|date',
             'jenis_kelamin'=> 'required|in:L,P',
             'nomor_telepon'=> 'sometimes|numeric|digits_between:10,15|unique:telepon,nomor_telepon', //sometimes tidak berjalan, masih harus wajib input nomor telepon
+            'id_kelas' => 'required',
         ]);
         
         if ($validator->fails()) {
