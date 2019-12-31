@@ -14,6 +14,8 @@ class SiswaController extends Controller
     public function index() {
         $siswa_list = Siswa::orderBy('nisn', 'asc')->Paginate(5);
         $jumlah_siswa =Siswa::count();
+        // $siswa = Siswa::find(1)->get();
+        // dd($siswa->kelas->nama_kelas);
         return view('siswa.index', compact('siswa_list', 'jumlah_siswa'));
     }
 
@@ -53,11 +55,12 @@ class SiswaController extends Controller
 
     public function edit($id) {
         $siswa = Siswa::findOrFail($id);
+        $list_kelas = Kelas::pluck('nama_kelas', 'id');
 
         if ( !empty($siswa->telepon->nomor_telepon)) {
             $siswa->nomor_telepon=$siswa->telepon->nomor_telepon;
         }
-        return view('siswa.edit', compact('siswa'));
+        return view('siswa.edit', compact('siswa', 'list_kelas'));
     }
 
     public function update($id, Request $request) {
@@ -70,6 +73,7 @@ class SiswaController extends Controller
             'tanggal_lahir'=> 'required|date',
             'jenis_kelamin'=> 'required|in:L,P',
             'nomor_telepon'=> 'sometimes|numeric|digits_between:10,15|unique:telepon,nomor_telepon,'.$request->input('id').',id_siswa',
+            'id_kelas' => 'required',
         ]);
         if ($validator->fails()) {
             return redirect('siswa/'. $id . '/edit')->withInput()->withErrors($validator);
