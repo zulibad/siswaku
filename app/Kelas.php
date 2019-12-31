@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Siswa;
 use Illuminate\Database\Eloquent\Model;
 
 class Kelas extends Model
